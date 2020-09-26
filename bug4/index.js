@@ -32,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	document.getElementById('transactions').innerHTML = renderTransactions(fullTransactionData);
 
 	document.getElementById('search-input').addEventListener('input', function (e) {
-		var searchString = e.target.value;
+		var values = e.target.value
+		var upperCase = values.charAt(0).toUpperCase() + values.slice(1);
+		var searchString =  upperCase
 		var filteredData = fullTransactionData.filter(function (transaction) {
 			var foundInName = transaction.name.indexOf(searchString) > -1;
 			var foundInFor = transaction.for.indexOf(searchString) > -1;
